@@ -1,0 +1,10 @@
+.venv/
+.github/
+.devcontainer/
+**/__pycache__/
+
+.env
+.python-version
+*.bak
+**/*.mo
+.coverage

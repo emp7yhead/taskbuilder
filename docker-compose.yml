@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  application:
+    build:
+      context: .
+    env_file: .env
+    volumes:
+      - .:/app:delegated
+    ports:
+      - "5000:5000"
+    command: uvicorn app.main:app --host 0.0.0.0 --port 5000 --reload

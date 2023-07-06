@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.settings import settings
+from app.api.base import main_router
 
 app = FastAPI(
     title=settings.app_name,
@@ -10,7 +11,4 @@ app = FastAPI(
     openapi_tags=settings.tags_metadata,
 )
 
-
-@app.get('/ping')
-async def ping():
-    return 'pong'
+app.include_router(main_router)

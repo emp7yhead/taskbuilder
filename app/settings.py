@@ -15,7 +15,9 @@ class Settings(BaseSettings):
             "description": "Task operations",
         },
     ]
-    tasks_dir: str = '/builds'
+    builds_dir: str = 'builds'
+    builds_file: str = 'builds.yml'
+    tasks_file: str = 'tasks.yml'
 
     class Config:
         case_sensitive = True

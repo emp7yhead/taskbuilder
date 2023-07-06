@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     }
     tags_metadata: list = [
         {
-            "name": "Tasks",
+            "name": "tasks",
             "description": "Task operations",
         },
     ]

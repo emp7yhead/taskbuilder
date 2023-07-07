@@ -7,6 +7,8 @@
 
 Build system to automate and speed up routine processes
 
+API documentation can be found [here](https://taskbuilder-production.up.railway.app/docs)
+
 ## Functionality
 
 - Get build tasks by sending POST request on `/tasks`

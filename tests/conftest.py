@@ -5,7 +5,8 @@ from fastapi.testclient import TestClient
 import yaml
 
 from app.main import app
-from app.utils.reader import get_tree
+from app.services.builds import get_builds_tree
+from app.services.tasks import get_tasks_tree
 
 
 def get_fixture_path(file_name):
@@ -25,17 +26,19 @@ def get_fixture_data(file_name):
 
 @pytest.fixture(scope='function')
 def test_client():
-    app.dependency_overrides[get_tree] = get_fake_tree
+    app.dependency_overrides[get_builds_tree] = get_fake_builds_tree
+    app.dependency_overrides[get_tasks_tree] = get_fake_tasks_tree
     client = TestClient(app)
     yield client
 
 
-def get_fake_tree():
+def get_fake_builds_tree():
     test_builds = get_fixture_data('test_builds.yml')
-    test_tasks = get_fixture_data('test_tasks.yml')
     test_builds_data = yaml.safe_load(test_builds)
+    return test_builds_data['builds']
+
+
+def get_fake_tasks_tree():
+    test_tasks = get_fixture_data('test_tasks.yml')
     test_tasks_data = yaml.safe_load(test_tasks)
-    return {
-        **test_builds_data,
-        **test_tasks_data,
-    }
+    return test_tasks_data['tasks']

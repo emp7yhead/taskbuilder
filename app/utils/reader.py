@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from app.utils.parser import parse
 from app.settings import settings
+from app.utils.parser import parse
 
 
 def build_path(file_path: str) -> Path:
@@ -20,11 +20,3 @@ def get_format(file_path: Path) -> str:
 
 def get_data(file_path: Path) -> dict:
     return parse(open(file_path), get_format(file_path))
-
-
-def get_tree() -> dict:
-    builds_path = build_path(settings.builds_file)
-    tasks_path = build_path(settings.tasks_file)
-    builds_data = get_data(builds_path)
-    tasks_data = get_data(tasks_path)
-    return {'build': builds_data, 'tasks': tasks_data}

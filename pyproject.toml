@@ -21,6 +21,7 @@ flake8-isort = "^6.0.0"
 Flake8-pyproject = "^1.2.3"
 pytest-cov = "^4.1.0"
 httpx = "^0.24.1"
+types-pyyaml = "^6.0.12.10"
 
 [build-system]
 requires = ["poetry-core"]

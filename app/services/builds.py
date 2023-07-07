@@ -2,8 +2,8 @@ import logging
 
 from fastapi import HTTPException
 
-from app.settings import settings
 from app.schemas.build import BuildIn
+from app.settings import settings
 from app.utils.reader import build_path, get_data
 
 

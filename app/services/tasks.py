@@ -9,7 +9,6 @@ def get_tasks_tree() -> dict:
 
 
 def build_tasks_graph(tasks_tree):
-    print(tasks_tree)
     return {
         task['name']: task['dependencies']
         for task

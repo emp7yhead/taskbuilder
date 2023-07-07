@@ -17,5 +17,5 @@ def get_current_tasks(builds: dict, build_name: BuildIn) -> list[str]:
     for build in builds:
         if build['name'] == build_name.build:
             return build['tasks']
-    logging.info(f'Can\'t find "{build_name}" build')
+    logging.info(f'Can\'t find "{build_name.build}" build')
     raise HTTPException(404, 'Build name not found')

@@ -1,7 +1,12 @@
+import logging
+
 from fastapi import FastAPI
 
-from app.settings import settings
 from app.api.base import main_router
+from app.settings import settings
+
+logging.basicConfig(level=logging.INFO)
+
 
 app = FastAPI(
     title=settings.app_name,

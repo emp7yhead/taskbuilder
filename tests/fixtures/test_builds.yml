@@ -1,0 +1,8 @@
+builds:
+- name: make_test
+  tasks:
+  - make_test
+  - make_test
+- name: make_run
+  tasks:
+  - make_prepare

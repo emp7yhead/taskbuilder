@@ -1,0 +1,6 @@
+
+[
+  "make_install",
+  "make_build",
+  "make_test"
+]

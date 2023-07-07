@@ -1,0 +1,12 @@
+tasks:
+- name: make_test
+  dependencies:
+  - make_install
+  - make_build
+- name: make_install
+  dependencies: []
+- name: make_build
+  dependencies:
+  - make_install
+- name: make_prepare
+  dependencies: []

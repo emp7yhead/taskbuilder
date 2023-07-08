@@ -1,5 +1,5 @@
-from io import TextIOWrapper
 import logging
+from io import TextIOWrapper
 
 import yaml
 from fastapi import HTTPException

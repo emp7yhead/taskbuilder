@@ -9,24 +9,6 @@ Build system to automate and speed up routine processes
 
 API documentation can be found [here](https://taskbuilder-production.up.railway.app/docs)
 
-## Functionality
-
-- Get build tasks by sending POST request on `/tasks`
-
-  Example:
-
-```bash
-curl -X 'POST' \
-  'http://0.0.0.0:5000/tasks/' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "build": "write_beautiful"
-}'
-```
-
-- Check builds for circular dependecies
-
 ## Requirements
 
 - Mac / Linux
@@ -50,7 +32,7 @@ curl -X 'POST' \
     git clone git@github.com:emp7yhead/taskbuilder.git
     ```
 
-- You could fill the `.env.example` file:
+- You could fill the `.env` file:
 
   - `builds_dir` - directory for builds files. Default is `builds`.
   - `builds_file` - file with builds. Default is `builds.yml`
@@ -79,3 +61,42 @@ You always can use docker image for:
   ```bash
   docker run -ti -p 5000:5000 emptyhead/taskbuilder
   ```
+
+## Functionality
+
+- Get build tasks and it dependecies by sending POST request on `/tasks`
+
+  Example request:
+
+  ```bash
+  curl -X 'POST' \
+    'http://0.0.0.0:5000/tasks/' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{
+    "build": "write_beautiful"
+  }'
+  ```
+
+- Get available builds by sending GET request on `/builds`
+
+  Example request:
+
+  ```bash
+  curl -X 'GET' \
+    'http://0.0.0.0:5000/builds/' \
+    -H 'accept: application/json'
+  ```
+
+- Check build tasks GET request on `/builds/{build_name}`
+
+  Example request:
+
+  ```bash
+  curl -X 'GET' \
+    'http://0.0.0.0:5000/builds/front_arm' \
+    -H 'accept: application/json'
+  ```
+
+- Healtcheck of service by sending GET request in `/healtcheck`
+

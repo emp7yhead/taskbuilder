@@ -21,16 +21,13 @@ coverage-report:  ## Make test coverage report
 type:  ## Run type check
 	poetry run mypy app
 
-run: .env  ## Run app in docker compose
+run:  ## Run app in docker compose
 	docker-compose up
 
 down:  ## Stop app in docker compose
 	docker-compose down
 
 check: lint coverage-report type  ## Complex check (linter, tests, typechecking)
-
-.env:  ## Create env file from example
-	test ! -f .env && cp .env.example .env
 
 help:  ## Display help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \

@@ -14,6 +14,10 @@ class Settings(BaseSettings):
             "name": "tasks",
             "description": "Task operations",
         },
+        {
+            "name": "builds",
+            "description": "Builds additional operations",
+        },
     ]
     builds_dir: str = 'builds'
     builds_file: str = 'builds.yml'

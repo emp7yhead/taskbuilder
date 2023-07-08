@@ -21,12 +21,3 @@ def build_tasks_graph(tasks_tree=Depends(get_tasks_tree)):
         for task
         in tasks_tree
     }
-
-
-def get_unique(tasks: list[str]) -> list[str]:
-    seen = set()
-    return [
-        task
-        for task in tasks
-        if task not in seen and not seen.add(task)  # type: ignore
-    ]

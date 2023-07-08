@@ -2,5 +2,7 @@
 [
   "make_install",
   "make_build",
-  "make_test"
+  "make_test",
+  "make_prepare",
+  "make_check"
 ]

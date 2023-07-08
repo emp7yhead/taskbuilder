@@ -2,11 +2,11 @@ import json
 from tests.conftest import get_fixture_data
 
 
-def test_tasks(test_client):
+def test_get_tasks(test_client):
     response = test_client.post(
-        '/tasks',
+        '/tasks/',
         json={
-            'build': 'make_test'
+            'build': 'make_test_server'
         }
     )
     expected = json.loads(get_fixture_data('expected.json'))
@@ -14,7 +14,7 @@ def test_tasks(test_client):
     assert response.json() == expected
 
     response = test_client.post(
-        '/tasks',
+        '/tasks/',
         json={
             'build': 'make_run'
         }
@@ -23,7 +23,7 @@ def test_tasks(test_client):
     assert response.json() == ['make_prepare']
 
     response = test_client.post(
-        '/tasks',
+        '/tasks/',
         json={
             'build': 'make_wow'
         }

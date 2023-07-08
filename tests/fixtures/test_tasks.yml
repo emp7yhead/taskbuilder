@@ -10,3 +10,6 @@ tasks:
   - make_install
 - name: make_prepare
   dependencies: []
+- name: make_check
+  dependencies:
+  - make_prepare
